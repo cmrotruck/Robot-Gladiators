@@ -82,7 +82,6 @@ var fightOrSkip = function () {
   var startGame = function () {
     // reset player stats
     playerInfo.reset();
-    debugger;
     // fight each enemy-robot by looping over them and fighting them one at a time
     for (var i = 0; i < enemyInfo.length; i++) {
       // if player is still alive, keep fighting
@@ -142,22 +141,18 @@ var fightOrSkip = function () {
   };
 
   var shop = function () {
-    var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGRADE your attack or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice.");
-
+    var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE.");
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     // use a switch to carry out the action
     switch (shopOptionPrompt) {
-      case "REFILL": //new case
-      case "refill":
+      case 1:
         playerInfo.refillHealth();
         break;
-      case "UPGRADE": //new case
-      case "upgrade":
+      case 2:
         playerInfo.upgradeAttack();
         break;
-      case "LEAVE": //new case
-      case "leave":
+      case 3:
         window.alert("Leaving the store.")
-
         //do nothing, so function will end.
         break;
       default:
